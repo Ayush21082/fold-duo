@@ -1,0 +1,110 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0b0c;
+  --fg: #f2f0ec;
+  --muted: #8d8a85;
+  --panel: rgba(255, 255, 255, 0.07);
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #f08a4b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: radial-gradient(120% 80% at 50% 40%, #1a1917, var(--bg));
+  color: var(--fg);
+  overflow: hidden;
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+
+#stage:active {
+  cursor: grabbing;
+}
+
+.title {
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.title small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.controls {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  width: min(360px, calc(100vw - 32px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 18px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+}
+
+.play {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--fg);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.play svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.play .pause,
+.play[aria-pressed='true'] .resume {
+  display: none;
+}
+
+.play[aria-pressed='true'] .pause {
+  display: block;
+}
+
+.play:focus-visible,
+#fold:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+#fold {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}

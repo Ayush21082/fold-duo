@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Fold Duo</title>
+    <meta name="description" content="A foldable phone rendered in three.js, with screens that stay in place while the hinge turns." />
+  </head>
+  <body>
+    <canvas id="stage" aria-label="Foldable phone. Drag to turn it, tap or press Space to fold it." tabindex="0"></canvas>
+    <h1 class="title">Fold Duo <small>Drag to turn · tap to fold</small></h1>
+    <div class="controls">
+      <button id="play" class="play" type="button" aria-pressed="false" aria-label="Play">
+        <svg class="resume" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" /></svg>
+        <svg class="pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5h3v13H8zM13 5.5h3v13h-3z" /></svg>
+      </button>
+      <input id="fold" type="range" min="0" max="1000" value="0" aria-label="How far open" />
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
